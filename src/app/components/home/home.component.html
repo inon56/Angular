@@ -1,0 +1,22 @@
+<h1>home</h1>
+
+<div>
+    <div>
+        <mat-form-field>
+            <mat-label>Categories</mat-label>
+            <mat-select multiple (valueChange)="onSelectValueChange($event)" [value]="categoryArr" >
+              @for (category of categoryArr; track category) {
+                <mat-option [value]="category" >{{category}}</mat-option>
+              }
+            </mat-select>
+          </mat-form-field>
+    </div>
+
+    <div class="cool">
+        <div class="list-item" *ngFor="let product of products$ | async">
+            <app-product [product]="product"></app-product>
+        </div>
+    </div>
+</div>
+
+
